@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    picture change page
+{% endblock %}
+
+{% block body_block %}
+
+{#    {% if changed %}#}
+{##}
+{#        <div class="alert alert-success">#}
+{#            Profile Pic Changed Successfully#}
+{#        </div>#}
+{#    {% endif %}#}
+
+    <h2>Profile Pic change</h2>
+
+    <form method="post" enctype="=multipart/form-data">
+        {{ form|crispy }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success btn-sm">change</button>
+    </form>
+    <br>
+
+{% endblock %}
