@@ -27,20 +27,16 @@
 
         {% if user.is_authenticated %}
 
-
-
             <li class="nav-item active">
-                <a class="nav-link" href="{% url 'App_Login:logout' %}">Log Out</a>
+                <a class="nav-link" href="{% url 'App_Blog:create_blog' %}">Write blog</a>
             </li>
 
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'App_Login:profile' %}">Profile</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link">Welcome- {{ user.get_username }}</a>
+                <a class="nav-link" href="{% url 'App_Login:logout' %}">Log Out</a>
             </li>
-
-
 
 
         {% else %}
@@ -59,17 +55,28 @@
     </ul>
 
     {% if user.is_authenticated %}
-         <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" >
             {{ user.username }}
           </a>
-          <div class="dropdown-menu">
-{#            <a class="dropdown-item" href="{% url 'App_Blog:my_blogs' %}">My Blog</a>#}
-            <a class="dropdown-item" href="{% url 'App_Login:profile' %}">Your Profile</a>
-            <a class="dropdown-item" href="{% url 'App_Login:logout' %}">Logout</a>
-
-        </div>
-      </div>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">My Blog</a></li>
+            <li><a class="dropdown-item" href="{% url 'App_Login:profile' %}">Your Profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'App_Login:logout' %}">Logout</a></li>
+          </ul>
+        </li>
+{#        <div class="nav-item dropdown">#}
+{#            <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">#}
+{#                {{ user.username }}#}
+{#            </a>#}
+{##}
+{#            <div class=" dropdown-menu">#}
+                {#            <a class="dropdown-item" href="{% url 'App_Blog:my_blogs' %}">My Blog</a>#}
+{#                <a class="dropdown-item" href="{% url 'App_Login:profile' %}">Your Profile</a>#}
+{#                <a class="dropdown-item" href="{% url 'App_Login:logout' %}">Logout</a>#}
+{##}
+{#            </div>#}
+{#        </div>#}
     {% endif %}
 </nav>
 
